@@ -1,0 +1,26 @@
+includes:
+  - ../base.yaml
+  - ../../GOODMotif.yaml
+ood_param:   # information constraint
+  - 0
+#  - 1
+extra_param:
+  -     # LA
+    - 10
+    - 5
+    - 1
+#    - 0
+  -      # EC
+    - 0
+  -      # EA
+    - 20
+    - 10
+#    - 0
+  -       # r decay interval
+    - 50
+  -       # EF
+    - 0
+  -           # If batchnorm/instancenorm (true/false)
+    - true
+pre_train:
+  - 100

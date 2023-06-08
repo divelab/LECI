@@ -1,0 +1,30 @@
+includes:
+  - ../base.yaml
+lr:
+  - 1e-3
+#  - 1e-4
+weight_decay:
+  - 0.
+ood_param:   # information constraint
+  - 0
+extra_param:
+  -     # LA
+    - 10
+    - 5
+    - 1
+#    - 0
+  -      # EC
+    - 0
+#    - 0.001
+  -      # EA
+    - 20
+    - 10
+#    - 0
+  -       # r decay interval
+    - 20
+  -       # EF
+    - 0
+  -           # If batchnorm/instancenorm (true/false)
+    - true
+pre_train:
+  - 100

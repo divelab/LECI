@@ -1,0 +1,11 @@
+includes:
+  - ../base.yaml
+extra_param:
+  -     # learn_edge_att
+    - true
+  -      # decay_interval
+    - 10
+    - 20
+  -      # final_r
+    - 0.5
+    - 0.7
