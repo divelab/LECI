@@ -140,6 +140,7 @@ class LECIGIN(GNNBasic):
 
     @staticmethod
     def concrete_sample(att_log_logit, temp, training):
+        # if True:
         if training:
             random_noise = torch.empty_like(att_log_logit).uniform_(1e-10, 1 - 1e-10)
             random_noise = torch.log(random_noise) - torch.log(1.0 - random_noise)

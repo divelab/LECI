@@ -1,0 +1,23 @@
+includes:
+  - base.yaml
+model:
+  model_name: LECIGIN
+ood:
+  ood_alg: LECI
+  ood_param: 0.0   # [Subgraph discovery architecture hyperparameter] GSAT IB constraint for stable training. Enable/Disable: 1.0/0.0
+  extra_param:
+    - 1            # LA: label adversarial
+    - 0            # Never used
+    - 20           # EA: environment adversarial
+    - 50           # [Subgraph discovery architecture hyperparameter] GSAT subgraph searching decay interval control (only used when ood_param = 1.0)
+    - 0            # Pure feature shift consideration: the input pre-transform hyperparameter.
+    - true         # Never used
+train:
+  max_epoch: 200
+  lr: 0.001
+  mile_stones:
+    - 150
+  pre_train: 100
+  weight_decay: 0.0
+log_file: exp_0
+clean_save: true
