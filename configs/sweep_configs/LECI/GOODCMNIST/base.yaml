@@ -5,14 +5,14 @@ extra_param:
   -     # LA
     - 100
     - 10
-    - 1
+#    - 1
 #    - 0
   -      # EC
     - 0
   -      # EA
     - 10
     - 1
-    - 0.1
+#    - 0.1
 #    - 0
   -       # r decay interval
     - 10

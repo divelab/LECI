@@ -57,8 +57,8 @@ def load_dataset(name: str, config: Union[CommonArgs, Munch]) -> dir:
     config.metric.set_score_func(dataset['metric'] if type(dataset) is dict else getattr(dataset, 'metric'))
     config.metric.set_loss_func(dataset['task'] if type(dataset) is dict else getattr(dataset, 'task'))
 
-    if name == 'LBAPcore' and config.ood.ood_alg == 'LECI':
-        dataset['train'].data.env_id = dataset['train'].data.env_id // (dataset['train'].data.env_id.max() // 10 + 1)
+    # if name == 'LBAPcore' and config.ood.ood_alg == 'LECI':
+    #     dataset['train'].data.env_id = dataset['train'].data.env_id // (dataset['train'].data.env_id.max() // 10 + 1)
 
     return dataset
 
