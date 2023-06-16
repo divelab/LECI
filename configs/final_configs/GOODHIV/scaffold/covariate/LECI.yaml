@@ -6,11 +6,11 @@ ood:
   ood_alg: LECI
   ood_param: 1.0
   extra_param:
-    - 1
+    - 0.1
     - 0
     - 0.01
     - 60
-    - 0
+    - 0.1
     - true
 train:
   max_epoch: 200

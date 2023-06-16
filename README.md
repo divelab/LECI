@@ -1,42 +1,8 @@
-# :sparkles: GOOD: A Graph Out-of-Distribution Benchmark :sparkles:
+# Joint Learning of Label and Environment Causal Independence for Graph Out-of-Distribution Generalization
 
 [license-url]: https://github.com/divelab/GOOD/blob/main/LICENSE
 [license-image]:https://img.shields.io/badge/license-GPL3.0-green.svg
 
-[![Documentation Status](https://readthedocs.org/projects/good/badge/?version=latest)](https://good.readthedocs.io/en/latest/?badge=latest)
-![Last Commit](https://img.shields.io/github/last-commit/divelab/DIG)
-[![License][license-image]][license-url]
-[![codecov](https://codecov.io/gh/divelab/GOOD/branch/main/graph/badge.svg?token=W41HSP0XCY)](https://codecov.io/gh/divelab/GOOD)
-[![CircleCI](https://circleci.com/gh/divelab/GOOD/tree/main.svg?style=svg)](https://circleci.com/gh/divelab/GOOD/tree/main)
-[![GOOD stars](https://img.shields.io/github/stars/divelab/GOOD?style=social)](https://github.com/divelab/GOOD)
-
-[**Documentation**](https://good.readthedocs.io) | [**NeurIPS 2022 Paper**](https://openreview.net/forum?id=8hHg-zs_p-h&referrer=%5Bthe%20profile%20of%20Shurui%20Gui%5D(%2Fprofile%3Fid%3D~Shurui_Gui1)) | [GOOD version 0](https://github.com/divelab/GOOD/tree/GOODv0) | GOOD version 1
-<!-- > We are actively building the document. -->
-
-<!-- [**GOOD: A Graph Out-of-Distribution Benchmark.**](https://arxiv.org/abs/2206.08452) Shurui Gui, Xiner Li, Limei Wang, and Shuiwang Ji. -->
-
-<!-- :fire:**New! The GOOD is now also parts of the software library [DIG](https://github.com/divelab/DIG)! If you wish to use the GOOD datasets with DIG features, you can directly use the [DIG](https://github.com/divelab/DIG) library!** -->
-
-:tada: **We are glad to announce that our GOOD paper is accepted by NeurIPS 2022 Datasets and Benchmarks Track!**
-
-For the original code used in the paper, please check branch [GOOD version 0](https://github.com/divelab/GOOD/tree/GOODv0). All new features, datasets and methods will be updated in this branch.
-
-New features' description will be updated on this README earlier than on the documentation.
-
-## Roadmap
-
-### Tutorial
-- [x] More flexible pipelines and dataloaders. Please refer to branch [dev](https://github.com/divelab/GOOD/tree/dev) for more details.
-- [ ] More detailed tutorial for adding new algorithms. [In progress]
-### Algorithms (plan to include)
-- [ ] [Improving Out-of-Distribution Robustness via Selective Augmentation](https://arxiv.org/pdf/2201.00299.pdf)
-- [ ] [Invariance Principle Meets Out-of-Distribution Generalization on Graphs](https://arxiv.org/pdf/2202.05441.pdf) [Waiting for the official implementation. It was accepted by NeurIPS 2022 recently:smile:]
-- [ ] [Interpretable and Generalizable Graph Learning via Stochastic Attention Mechanism](https://arxiv.org/abs/2201.12987) [In progress]
-  - [x] Method reproduction.
-  - [ ] Experiments: hyperparameter sweeping
-### New features
-- [x] Automatic program launcher.
-- [x] Automatic hyperparameter sweeping and config updating.
 
 ## Table of contents
 
