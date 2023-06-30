@@ -16,31 +16,9 @@
 
 ## Overview
 
-**GOOD** (Graph OOD) is a graph out-of-distribution (OOD) algorithm benchmarking library depending on PyTorch and PyG
-to make develop and benchmark OOD algorithms easily.
 
-Currently, GOOD contains 11 datasets with 17 domain selections. When combined with covariate, concept, and no shifts, we obtain 51 different splits.
-We provide performance results on 10 commonly used baseline methods (ERM, IRM, VREx, GroupDRO, Coral, DANN, MixupForGraph, DIR, EERM,SRGNN) including 4 graph specific methods with 10 random runs.
 
-The GOOD dataset summaries are shown in the following figure.
-
-![Dataset](/../../blob/main/docs/source/imgs/Datasets.png)
-
-## Why GOOD?
-
-Whether you are an experienced researcher of graph out-of-distribution problems or a first-time learner of graph deep learning, 
-here are several reasons to use GOOD as your Graph OOD research, study, and development toolkit.
-
-* **Easy-to-use APIs:** GOOD provides simple APIs for loading OOD algorithms, graph neural networks, and datasets so that you can take only several lines of code to start.
-* **Flexibility:** Full OOD split generalization code is provided for extensions and any new graph OOD dataset contributions.
-OOD algorithm base class can be easily overwritten to create new OOD methods.
-* **Easy-to-extend architecture:** In addition to playing as a package, GOOD is also an integrated and well-organized project ready to be further developed.
-All algorithms, models, and datasets can be easily registered by `register` and automatically embedded into the designed pipeline like a breeze!
-The only thing the user needs to do is write your own OOD algorithm class, your own model class, or your new dataset class.
-Then you can compare your results with the leaderboard.
-* **Easy comparisons with the leaderboard:** We provide insightful comparisons from multiple perspectives. Any research and studies can use
-our leaderboard results for comparison. Note that this is a growing project, so we will include new OOD algorithms gradually.
-Besides, if you hope to include your algorithms in the leaderboard, please contact us or contribute to this project. A big welcome!
+![LECI](/../../blob/main/docs/source/imgs/Datasets.png)
 
 
 ## Installation 

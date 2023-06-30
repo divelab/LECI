@@ -1,14 +1,14 @@
 includes:
   - base.yaml
 model:
-  model_name: LECIGIN
+  model_name: LECIvGIN
 ood:
   ood_alg: LECI
   ood_param: 0.0
   extra_param:
-    - 5
+    - 1
     - 0
-    - 20
+    - 0.3
     - 50
     - 0
     - true
@@ -16,8 +16,8 @@ train:
   max_epoch: 200
   lr: 0.001
   mile_stones:
-    - 150
-  pre_train: 100
+    - 200
+  pre_train: 50
   weight_decay: 0.0
 log_file: exp_0
 clean_save: true
