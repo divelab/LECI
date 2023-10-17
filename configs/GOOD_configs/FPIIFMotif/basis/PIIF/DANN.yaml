@@ -1,7 +1,7 @@
 includes:
   - base.yaml
 model:
-  model_name: DANN_GIN
+  model_name: DANN_vGIN
 ood:
   ood_alg: DANN
   ood_param: 0.01

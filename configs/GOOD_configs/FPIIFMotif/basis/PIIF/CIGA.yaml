@@ -1,7 +1,7 @@
 includes:
   - base.yaml
 model:
-  model_name: CIGAGIN
+  model_name: CIGAvGIN
 ood:
   ood_alg: CIGA
   ood_param: 0.6

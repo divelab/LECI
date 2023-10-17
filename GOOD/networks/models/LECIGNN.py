@@ -143,7 +143,11 @@ class LECIGIN(GNNBasic):
         return (lc_logits, la_logits, None, ea_logits, ef_logits), att, edge_att
 
     def sampling(self, att_log_logits, training):
-        temp = (self.config.train.epoch * 0.1 + (200 - self.config.train.epoch) * 10) / 200 if self.config.dataset.dataset_name == 'GOODMotif' and self.config.dataset.domain == 'size' else 1
+        if (self.config.dataset.dataset_name == 'GOODMotif' and self.config.dataset.domain == 'size') or \
+            (self.config.dataset.dataset_name == 'FPIIFMotif'):
+            temp = (self.config.train.epoch * 0.1 + (200 - self.config.train.epoch) * 10) / 200
+        else:
+            temp = 1
         # temp = 1
         att = self.concrete_sample(att_log_logits, temp=temp, training=training)
         return att

@@ -6,7 +6,7 @@ ood_param:   # information constraint
 #  - 1
 extra_param:
   -     # LA
-    - 20
+#    - 20
     - 10
     - 3
     - 1
@@ -20,8 +20,8 @@ extra_param:
   -      # EC
     - 0
   -      # EA
-    - 20
-    - 10
+#    - 20
+#    - 10
     - 3
     - 1
     - 0.3
@@ -36,5 +36,11 @@ extra_param:
     - 0
   -           # If batchnorm/instancenorm (true/false)
     - true
+#    - false
 pre_train:
   - 100
+mile_stones:
+  - 201
+model_name:
+#  - LECIGIN
+  - LECIvGIN

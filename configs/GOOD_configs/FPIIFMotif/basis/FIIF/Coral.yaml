@@ -1,7 +1,7 @@
 includes:
   - base.yaml
 model:
-  model_name: Coral_GIN
+  model_name: Coral_vGIN
 ood:
   ood_alg: Coral
   ood_param: 1.

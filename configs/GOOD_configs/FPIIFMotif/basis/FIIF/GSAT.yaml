@@ -1,7 +1,7 @@
 includes:
   - base.yaml
 model:
-  model_name: GSATGIN
+  model_name: GSATvGIN
 ood:
   ood_alg: GSAT
   ood_param: 1

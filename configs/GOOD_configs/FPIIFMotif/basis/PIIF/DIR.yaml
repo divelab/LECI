@@ -1,7 +1,7 @@
 includes:
   - base.yaml
 model:
-  model_name: DIRGIN
+  model_name: DIRvGIN
 ood:
   ood_alg: DIR
   ood_param: 0.8
