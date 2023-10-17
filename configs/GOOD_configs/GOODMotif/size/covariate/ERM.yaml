@@ -1,7 +1,7 @@
 includes:
   - base.yaml
 model:
-  model_name: GIN
+  model_name: vGIN
 ood:
   ood_alg: ERM
   ood_param: -1.0

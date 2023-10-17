@@ -1,7 +1,7 @@
 includes:
   - base.yaml
 model:
-  model_name: CIGAGIN
+  model_name: CIGAvGIN
 ood:
   ood_alg: CIGA
   ood_param: 0.8
@@ -9,7 +9,7 @@ ood:
     - 2
     - 0.5
 train:
-  max_epoch: 100
+  max_epoch: 200
   lr: 0.001
   mile_stones:
     - 150

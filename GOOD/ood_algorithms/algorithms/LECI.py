@@ -107,6 +107,8 @@ class LECI(BaseOODAlg):
         """
         # if config.dataset.dataset_name == 'GOODHIV' and getattr(data, 'domain_id') is not None:
         #     data.env_id = data.domain_id
+        if config.environment_inference:
+            data.env_id = torch.tensor(self.model.E_infer).to(config.device)
 
         self.spec_loss = OrderedDict()
         if self.EF:

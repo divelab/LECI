@@ -23,12 +23,14 @@ install_requires = [
     'dive-into-graphs',
     'cvxopt>=1.3.0',
     'pynvml>=11.4.1',
-    'psutil>=5.9.1'
+    'psutil>=5.9.1',
+    'numpy~=1.21.5',
+    'setuptools~=59.5.0'
 ]
 
 setuptools.setup(
     name="graph-ood",
-    version="1.0.1-leci",
+    version="1.0.1",
     author="Shurui Gui",
     author_email="shurui.gui@tamu.edu",
     description="LECI",

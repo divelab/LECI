@@ -20,6 +20,7 @@ from .GINvirtualnode import vGINFeatExtractor
 from .Pooling import GlobalMeanPool
 from munch import munchify
 from .MolEncoders import AtomEncoder, BondEncoder
+from GOOD.utils.fast_pytorch_kmeans import KMeans
 
 
 @register.model_register
@@ -27,6 +28,13 @@ class LECIGIN(GNNBasic):
 
     def __init__(self, config: Union[CommonArgs, Munch]):
         super(LECIGIN, self).__init__(config)
+
+        # --- if environment inference ---
+        config.environment_inference = False
+        self.env_infer_warning = f'#W#Expermental mode: environment inference phase.'
+        config.dataset.num_envs = 3
+        # --- Test environment inference ---
+
         self.config = config
 
         self.learn_edge_att = True
@@ -118,7 +126,14 @@ class LECIGIN(GNNBasic):
 
         if self.EA and self.training:
             set_masks(GradientReverseLayerF.apply(edge_att, self.EA * self.config.train.alpha), self.ea_gnn)
-            ea_logits = self.ea_classifier(self.ea_gnn(*args, **kwargs))
+            ea_readout = self.ea_gnn(*args, **kwargs)
+            if self.config.environment_inference:
+                if self.env_infer_warning:
+                    print(self.env_infer_warning)
+                    self.env_infer_warning = None
+                kmeans = KMeans(n_clusters=self.config.dataset.num_envs, n_init=10, device=ea_readout.device).fit(ea_readout)
+                self.E_infer = kmeans.labels_
+            ea_logits = self.ea_classifier(ea_readout)
             clear_masks(self)
         else:
             ea_logits = None

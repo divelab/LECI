@@ -1,7 +1,7 @@
 includes:
   - base.yaml
 model:
-  model_name: LECIGIN
+  model_name: LECIvGIN
 ood:
   ood_alg: LECI
   ood_param: 0.0
