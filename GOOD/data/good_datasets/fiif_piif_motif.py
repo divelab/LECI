@@ -55,12 +55,14 @@ class FPIIFMotif(InMemoryDataset):
 
         super().__init__(root, transform, pre_transform)
         subset_pt = 0
-        if shift == 'concept':
+        if shift == 'covariate':
             subset_pt += 0
-        elif shift == 'FIIF':
+        if shift == 'concept':
             subset_pt += 5
-        elif shift == 'PIIF':
+        elif shift == 'FIIF':
             subset_pt += 10
+        elif shift == 'PIIF':
+            subset_pt += 15
 
         if subset == 'train':
             subset_pt += 0
@@ -97,7 +99,8 @@ class FPIIFMotif(InMemoryDataset):
 
     @property
     def processed_file_names(self):
-        return ['concept_train.pt', 'concept_val.pt', 'concept_test.pt', 'concept_id_val.pt', 'concept_id_test.pt',
+        return ['covariate_train.pt', 'covariate_val.pt', 'covariate_test.pt', 'covariate_id_val.pt', 'covariate_id_test.pt',
+                'concept_train.pt', 'concept_val.pt', 'concept_test.pt', 'concept_id_val.pt', 'concept_id_test.pt',
                 'FIIF_train.pt', 'FIIF_val.pt', 'FIIF_test.pt', 'FIIF_id_val.pt', 'FIIF_id_test.pt',
                 'PIIF_train.pt', 'PIIF_val.pt', 'PIIF_test.pt', 'PIIF_id_val.pt', 'PIIF_id_test.pt']
 
@@ -144,6 +147,40 @@ class FPIIFMotif(InMemoryDataset):
             data.y = y
 
         return data
+
+    def get_basis_covariate_list(self, num_data=60000):
+        train_ratio = 0.8
+        val_ratio = 0.1
+        test_ratio = 0.1
+        train_num = int(num_data * train_ratio)
+        val_num = int(num_data * val_ratio)
+        test_num = int(num_data * test_ratio)
+        split_num = [train_num, val_num, test_num]
+        all_split_list = [[] for _ in range(3)]
+        for split_id in range(3):
+            for _ in range(split_num[split_id]):
+                motif_id = random.randint(0, 2)
+                if split_id == 0:
+                    basis_id = random.randint(0, 2)
+                else:
+                    basis_id = split_id + 2
+                width_basis = 10 + np.random.random_integers(-5, 5)
+                data = self.gen_data(basis_id=basis_id, width_basis=width_basis, motif_id=motif_id)
+                data.env_id = torch.LongTensor([basis_id])
+                all_split_list[split_id].append(data)
+
+        train_list = all_split_list[0]
+        num_id_test = int(num_data * test_ratio)
+        random.shuffle(train_list)
+        train_list, id_val_list, id_test_list = train_list[: -2 * num_id_test], \
+                                                train_list[-2 * num_id_test: - num_id_test], train_list[- num_id_test:]
+
+        ood_val_list = all_split_list[1]
+        ood_test_list = all_split_list[2]
+
+        all_env_list = [train_list, ood_val_list, ood_test_list, id_val_list, id_test_list]
+
+        return all_env_list
 
     def get_basis_concept_list(self, num_data=60000):
         # data_list = []
@@ -285,6 +322,8 @@ class FPIIFMotif(InMemoryDataset):
     def process(self):
 
         if self.domain == 'basis':
+            covariate_shift_list = self.get_basis_covariate_list(self.num_data)
+            print("#IN#covariate shift done!")
             concept_shift_list = self.get_basis_concept_list(self.num_data)
             print("#IN#concept shift done!")
             FIIF_shift_list = self.get_basis_FIIF_list(self.num_data)
@@ -293,7 +332,7 @@ class FPIIFMotif(InMemoryDataset):
             print("#IN#PIIF shift done!")
         else:
             raise ValueError(f'Dataset domain cannot be "{self.domain}"')
-        all_shift_list = concept_shift_list + FIIF_shift_list + PIIF_shift_list
+        all_shift_list = covariate_shift_list + concept_shift_list + FIIF_shift_list + PIIF_shift_list
         for i, final_data_list in enumerate(all_shift_list):
             data, slices = self.collate(final_data_list)
             torch.save((data, slices), self.processed_paths[i])

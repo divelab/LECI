@@ -39,8 +39,8 @@ extra_param:
 #    - false
 pre_train:
   - 100
-mile_stones:
-  - 201
-model_name:
-#  - LECIGIN
-  - LECIvGIN
+#mile_stones:
+#  - 201
+#model_name:
+##  - LECIGIN
+#  - LECIvGIN
