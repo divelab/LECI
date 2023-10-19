@@ -253,11 +253,16 @@ class FPIIFMotif(InMemoryDataset):
                 motif_id = random.randint(0, 2)
                 if split_id == 0:
                     basis_id = random.randint(0, 2)
+                    if random.random() < 0.9:
+                        width_basis = all_width_basis[motif_id] + random.randint(-5, 5)
+                    else:
+                        width_basis = 20 + random.randint(-5, 5)
                 else:
                     basis_id = split_id + 2
+                    width_basis = 20 + random.randint(-10, 10)
 
                 # --- G_C controls G_S's width ---
-                width_basis = all_width_basis[motif_id] + random.randint(-5, 5)
+
                 data = self.gen_data(basis_id=basis_id, width_basis=width_basis, motif_id=motif_id)
                 data.env_id = torch.LongTensor([basis_id])
                 all_split_list[split_id].append(data)
@@ -300,7 +305,13 @@ class FPIIFMotif(InMemoryDataset):
                     data_y = motif_id
 
                 # --- y controls G_S's width ---
-                width_basis = all_width_basis[data_y] + random.randint(-5, 5)
+                if split_id == 0:
+                    if random.random() < 0.9:
+                        width_basis = all_width_basis[data_y] + random.randint(-5, 5)
+                    else:
+                        width_basis = 20 + random.randint(-5, 5)
+                else:
+                    width_basis = 20 + random.randint(-10, 10)
 
                 data = self.gen_data(basis_id=basis_id, width_basis=width_basis, motif_id=motif_id, y=data_y)
                 data.env_id = torch.LongTensor([basis_id])

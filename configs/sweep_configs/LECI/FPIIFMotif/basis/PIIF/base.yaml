@@ -1,4 +1,44 @@
 includes:
   - ../base.yaml
-#lr:
-#  - 1e-3
+extra_param:
+  -     # LA
+#    - 20
+    - 10
+    - 1
+#    - 0.3
+    - 0.1
+#    - 3e-2
+    - 1e-2
+#    - 3e-3
+#    - 1e-3
+#    - 0
+  -      # EC
+    - 0
+  -      # EA
+#    - 20
+    - 10
+#    - 3
+    - 1
+#    - 0.3
+    - 0.1
+#    - 3e-2
+    - 1e-2
+    - 3e-3
+#    - 1e-3
+  -       # r decay interval
+    - 50
+  -       # EF
+    - 0
+  -           # If batchnorm/instancenorm (true/false)
+    - true
+#    - false
+mile_stones:
+  - 201
+lr:
+  - 1e-3
+  - 1e-4
+#  - 1e-5
+weight_decay:
+  - 0.
+  - 1e-4
+  - 1e-5
