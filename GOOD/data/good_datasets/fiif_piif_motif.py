@@ -41,7 +41,7 @@ class FPIIFMotif(InMemoryDataset):
         self.domain = domain
         self.metric = 'Accuracy'
         self.task = 'Multi-label classification'
-        self.url = ''
+        self.url = 'https://drive.google.com/file/d/14r2DcJ6hyth0zNJcO_GPpl1Fto6D4bVe/view?usp=sharing'
 
         self.generate = generate
 

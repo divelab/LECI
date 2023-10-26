@@ -31,8 +31,9 @@ class LECIGIN(GNNBasic):
 
         # --- if environment inference ---
         config.environment_inference = False
-        self.env_infer_warning = f'#W#Expermental mode: environment inference phase.'
-        config.dataset.num_envs = 3
+        if config.environment_inference:
+            self.env_infer_warning = f'#W#Expermental mode: environment inference phase.'
+            config.dataset.num_envs = 3
         # --- Test environment inference ---
 
         self.config = config

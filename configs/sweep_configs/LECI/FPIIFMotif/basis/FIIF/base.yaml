@@ -1,4 +1,26 @@
 includes:
   - ../base.yaml
-#lr:
-#  - 1e-3
+ood_param:   # information constraint
+  - 0
+#  - 1
+extra_param:
+  -     # LA
+    - 1
+    - 0.3
+    - 0.1
+    - 3e-2
+    - 1e-2
+#    - 0
+  -      # EC
+    - 0
+  -      # EA
+    - 0.3
+    - 0.1
+    - 3e-2
+    - 1e-2
+  -       # r decay interval
+    - 50
+  -       # EF
+    - 0
+  -           # If batchnorm/instancenorm (true/false)
+    - true
