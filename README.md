@@ -3,7 +3,8 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2306.01103-b31b1b.svg)](https://arxiv.org/abs/2306.01103)
 [![License][license-image]][license-url]
 
-> This is a developing repo for the implementation of our work "Joint Learning of Label and Environment Causal Independence for Graph Out-of-Distribution Generalization".
+This is the official code for the implementation of "Joint Learning of Label and Environment Causal Independence for Graph Out-of-Distribution Generalization"
+which is accepted by NeurIPS 2023. :smile:
 
 [license-url]: https://github.com/divelab/LECI/blob/main/LICENSE
 [license-image]:https://img.shields.io/badge/license-GPL3.0-green.svg
@@ -21,7 +22,7 @@
 ## Overview
 
 In this work, we propose to simultaneously incorporate label and environment causal independence (LECI) to 
-**fully make use of label and environment information**, thereby addressing the challenges faced by prior methods on identifying 
+release the potential of pre-collected environment information in graph tasks, thereby addressing the challenges faced by prior methods on identifying 
 causal/invariant subgraphs. We further develop an adversarial training strategy to jointly optimize these two properties for 
 causal subgraph discovery with theoretical guarantees.
 
@@ -55,9 +56,6 @@ goodtg --config_path final_configs/GOODSST2/length/covaraite/LECI.yaml --exp_rou
 goodtg --config_path final_configs/GOODTwitter/length/covaraite/LECI.yaml --exp_round [1/2/3/4/5/6/7/8/9/10] --gpu_idx [0..9]
 ```
 
-The code is slightly optimized, so the performance may be higher than the results reported, especially for GOODHIV.
-The changes will be reflected in the next version.
-
 Explanations of the arguments can be found in this [file](/../../blob/main/GOOD_configs/GOODMotif/basis/covaraite/LECI.yaml).
 
 ### How to train LECI?
@@ -71,14 +69,17 @@ increases from 0 to $\lambda_{EA}$ as the training proceeds, which is controlled
 
 **How to select the valid hyperparameters?** If the EA/LA loss never decreases (invalid LECI), please try decreasing $\lambda_{EA}$ and $\lambda_{LA}$.
 
+For more details, please refer to the appendix of [our paper](https://openreview.net/pdf?id=z3HACY5CMa).
+
 ## Citing LECI
-If you find this repository helpful, please cite our [preprint](https://arxiv.org/abs/2306.01103).
+If you find this repository helpful, please cite our [paper](https://openreview.net/forum?id=z3HACY5CMa)/[preprint](https://arxiv.org/abs/2306.01103).
 ```
-@article{gui2023joint,
+@inproceedings{gui2023joint,
   title={Joint Learning of Label and Environment Causal Independence for Graph Out-of-Distribution Generalization},
   author={Gui, Shurui and Liu, Meng and Li, Xiner and Luo, Youzhi and Ji, Shuiwang},
-  journal={arXiv preprint arXiv:2306.01103},
-  year={2023}
+  booktitle={Thirty-seventh Conference on Neural Information Processing Systems},
+  year={2023},
+  url={https://openreview.net/forum?id=z3HACY5CMa}
 }
 ```
 
