@@ -1,6 +1,7 @@
 # Joint Learning of Label and Environment Causal Independence for Graph Out-of-Distribution Generalization
 
 [![arXiv](https://img.shields.io/badge/arXiv-2306.01103-b31b1b.svg)](https://arxiv.org/abs/2306.01103)
+<a href="https://openreview.net/forum?id=z3HACY5CMa"> <img alt="License" src="https://img.shields.io/static/v1?label=Pub&message=NeurIPS%2723&color=blue"> </a>
 [![License][license-image]][license-url]
 
 This is the official code for the implementation of "Joint Learning of Label and Environment Causal Independence for Graph Out-of-Distribution Generalization"
@@ -56,7 +57,7 @@ goodtg --config_path final_configs/GOODSST2/length/covaraite/LECI.yaml --exp_rou
 goodtg --config_path final_configs/GOODTwitter/length/covaraite/LECI.yaml --exp_round [1/2/3/4/5/6/7/8/9/10] --gpu_idx [0..9]
 ```
 
-Explanations of the arguments can be found in this [file](/../../blob/main/GOOD_configs/GOODMotif/basis/covaraite/LECI.yaml).
+Explanations of the arguments can be found in this [file](/../../blob/LECI-1.0.0/configs/GOOD_configs/GOODMotif/basis/covariate/LECI.yaml).
 
 ### How to train LECI?
 
