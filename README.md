@@ -57,6 +57,8 @@ goodtg --config_path final_configs/GOODSST2/length/covaraite/LECI.yaml --exp_rou
 goodtg --config_path final_configs/GOODTwitter/length/covaraite/LECI.yaml --exp_round [1/2/3/4/5/6/7/8/9/10] --gpu_idx [0..9]
 ```
 
+To run the code without installing the project, please replace `goodtg` with `python -m GOOD.kernel.main`.
+
 Explanations of the arguments can be found in this [file](/../../blob/LECI-1.0.0/configs/GOOD_configs/GOODMotif/basis/covariate/LECI.yaml).
 
 ### How to train LECI?
