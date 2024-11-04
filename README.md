@@ -100,3 +100,7 @@ Please submit [new issues](/../../issues/new) or start [a new discussion](/../..
 
 Please feel free to contact [Shurui Gui](mailto:shurui.gui@tamu.edu) or [Shuiwang Ji](mailto:sji@tamu.edu)!
 
+## Acknowledgements
+
+This work was supported in part by National Science Foundation grants IIS-2006861 and IIS-1908220.
+
